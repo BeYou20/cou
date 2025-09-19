@@ -44,6 +44,6 @@ fetch(googleSheetsUrl)
     });
 
     // Make the swiper visible
-    document.querySelector('.image-swiper').style.opacity = '1';
+    document.querySelector('.image-swiper').style.display = 'block';
   })
   .catch(error => console.error('Error fetching images:', error));
