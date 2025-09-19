@@ -1,11 +1,13 @@
 /* Custom styles for the new image slider */
 .image-swiper {
   width: 100%;
-  height: 200px;
+  height: 350px; /* الارتفاع الموحد كما طلبت */
   margin-top: 30px;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  opacity: 0; /* سيخفي السلايدر في البداية */
+  transition: opacity 0.5s ease; /* سيجعل الظهور سلساً */
 }
 
 .image-swiper .swiper-slide {
@@ -52,16 +54,4 @@
 .image-swiper .swiper-pagination-bullet-active {
   background-color: var(--secondary-color);
   opacity: 1;
-}
-
-/* Custom styles for the new image slider */
-.image-swiper {
-  width: 100%;
-  height: 350px;
-  margin-top: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  opacity: 0; /* هذا الكود الجديد سيخفي السلايدر في البداية */
-  transition: opacity 0.5s ease; /* سيجعل الظهور سلساً */
 }
