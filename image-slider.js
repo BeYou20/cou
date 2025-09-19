@@ -10,7 +10,7 @@ fetch(googleSheetsUrl)
   })
   .then(data => {
     const swiperWrapper = document.querySelector('.image-swiper .swiper-wrapper');
-    swiperWrapper.innerHTML = ''; // Clear existing slides
+    swiperWrapper.innerHTML = '';
 
     data.images.forEach(image => {
       const slide = document.createElement('div');
@@ -36,6 +36,7 @@ fetch(googleSheetsUrl)
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
+        dynamicBullets: true // هذا الكود الجديد سيجعل النقاط ديناميكية
       },
       navigation: {
         nextEl: '.swiper-button-next',
@@ -44,6 +45,6 @@ fetch(googleSheetsUrl)
     });
 
     // Make the swiper visible
-    document.querySelector('.image-swiper').style.display = 'block';
+    document.querySelector('.image-swiper').style.opacity = '1';
   })
   .catch(error => console.error('Error fetching images:', error));
