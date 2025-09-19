@@ -1,22 +1,3 @@
-// Initialization for the new image slider
-var imageSwiper = new Swiper('.image-swiper', {
-  slidesPerView: 1,
-  spaceBetween: 0,
-  loop: true,
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
-
 // Fetch images from the Google Sheets API and create slides
 const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbyjhpUfLg2MKWB0HU6-na_5G2GkH5P4nLw2UWD3JZJ9CeMYTzIbdwCGbK0ga8H7Vdh-Uw/exec';
 
@@ -37,13 +18,29 @@ fetch(googleSheetsUrl)
 
       const img = document.createElement('img');
       img.src = image.url;
-      img.alt = Nameimg;
+      img.alt = 'صورة من معرض الصور';
       
       slide.appendChild(img);
       swiperWrapper.appendChild(slide);
     });
 
-    // Re-initialize the swiper to load the new slides
-    imageSwiper.update();
+    // Initialize Swiper ONLY after slides have been added
+    var imageSwiper = new Swiper('.image-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
   })
   .catch(error => console.error('Error fetching images:', error));
